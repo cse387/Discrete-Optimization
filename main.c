@@ -3,7 +3,6 @@
 int dim=8;
 int main(){
   int *x=(int*)malloc(sizeof(int)*dim);
-  //struct Perm p[dim];
   int *r=(int*)malloc(sizeof(int)*dim);
   
   for(int i=0; i<dim; i++){
@@ -24,14 +23,11 @@ int main(){
       }
     }
   }
-  //printf("fun=%i\n",functorial(dim-1) );
+  
   int L=functorial(dim-1);
   int Lmin=L/(double)2;
   double F=costFun(x,dist);
   double min=F;
-
-  //int *state=(int*)(malloc(sizeof(int)*dim));
-  //int *revstate=(int*)(malloc(sizeof(int)*dim));
   
   double T=0;
   int iter=0;
@@ -40,8 +36,6 @@ int main(){
   printf("Temp=%f\n",T );
   while (1) {
     int accept=0;
-    ///kanto synarthsh
-    //void main(int dim,int *x, int *r,double &F,double &accept,int L,)
     double Fnew=0;
     int *state;
   	int *revstate;
@@ -63,7 +57,6 @@ int main(){
         r=copy(revstate,dim);
       }
     }
-    ///
     if(F<min){
         min=F;
       }
@@ -78,18 +71,6 @@ int main(){
   }
   printf("initial=%f\n",initial );
   printf("min=%f\n",min );
-  /*testings
-  printf("%f\n",costFun(x,dist) );
-  for(int j=0; j<10; j++){
-    optchange3(x,r);
-  for(int i=0; i<dim; i++){
-    printf(" %i ",x[i] );
-  }
-  for(int i=0; i<dim; i++){
-    printf(" %i ",r[i] );
-  }
-  printf("Cost=%f\n",costFun(x,dist) );
-}*/
 
   return 0;
 }
