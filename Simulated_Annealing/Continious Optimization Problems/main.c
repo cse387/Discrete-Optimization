@@ -1,4 +1,4 @@
-#include "ContiniousOpt.h"
+#include "ContinuousOpt.h"
 #define M_PI 3.14159265358979323846
 int dim=6;
 int a=-5;//[a,b] search interval
