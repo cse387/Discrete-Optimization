@@ -1,4 +1,4 @@
-#include "ContiniousOpt.h"
+#include "ContinuousOpt.h"
 /*double ObjFunc(double x[]){
  double p=1;
   double sum=0;
