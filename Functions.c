@@ -1,4 +1,4 @@
-#include "discreteOpt.h"
+#include "DiscreteOpt.h"
 double costFun(int *x,double d[dim][dim]){
   double sum=0;
   for(int i=0; i<dim-1; i++){
