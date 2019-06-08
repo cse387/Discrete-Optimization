@@ -1,5 +1,4 @@
-#include "discreteOpt.h"
-#include <omp.h>
+#include "DiscreteOpt.h"
 int dim=8;
 int main(){
   int *x=(int*)malloc(sizeof(int)*dim);
