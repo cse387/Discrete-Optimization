@@ -27,7 +27,7 @@ int main(){
   int Lmin=L/(double)2;
   double F=costFun(x,dist);
   double min=F;
-  
+  double initial=F;
   double T=0;
   int iter=0;
   
