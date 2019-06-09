@@ -11,17 +11,16 @@ int main(){
   int iter=0;
   double rate=2.9;
   int L=10*dim;
-  double *x=(double*)malloc(sizeof(double)*dim);//[dim];
+  double *x=(double*)malloc(sizeof(double)*dim);
   double len=1;
   for(int i=0; i<dim; i++){
     int random=rand_float(a,b);
     x[i]=random;
     len=len/(b-a);
   }
-  //double *T=(double*)malloc(1);
   double *Fmean=(double*)malloc(sizeof(double)*1);
 
-  double T=intializationOfTemperature(0.9,5,x);
+  double T=1000;//intializationOfTemperature(0.9,5,x);
   double Tprev=0;
   struct Point *A=(struct Point*)malloc((N)*sizeof(struct Point));
   struct Point *G=(struct Point*)malloc((n+1)*sizeof(struct Point));
@@ -41,10 +40,7 @@ int main(){
       else{
       setRandDirect(P,dim);
       len=quadInter(len,x,P);
-    //  printf(" ");
-    //  printf("len==%f\n",len );
         for(int i=0; i<dim; i++){
-        //  P[i]=rand_float(a,b);
           y[i]=x[i]+len*P[i];
         }
       }
@@ -59,7 +55,7 @@ int main(){
         accept=1;
       }
       if(accept=1){
-        A[N-1].fvalue=fy;//difff wayyy;;; pick randim in 1 N-1
+        A[N-1].fvalue=fy;//diferent wayyy;;; pick randim in 1 N-1
         for(int i=0; i<dim; i++){
           A[N-1].value[i]=y[i];
           x[i]=y[i];
@@ -78,9 +74,8 @@ int main(){
       stop=1;
       }
     }
-    //T=realloc(T,sizeof(double)*(iter+2));
     Tprev=T;
-    T =T*pow(1+(T*log(1+iter))/(3*std(MC,L,mean)),-1);
+    T =T*0.1;//(3*std(MC,L,Fmean[iter])/(1+(T*log(1+iter)));
     printf("fvalue==%f\n iter==%i\n T=%f\n ",A[0].fvalue,iter,T);
     iter++;
   }
